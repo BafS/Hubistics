@@ -18,7 +18,7 @@ app.use('/node_modules', express.static(__dirname + '/node_modules/'))
 app.use('/assets', express.static(__dirname + '/assets/'))
 
 app.get('*', function(req, res) {
-  res.sendFile(path.join(__dirname, 'index.html'))
+  res.sendFile(path.join(__dirname, 'indexDev.html'))
 })
 
 app.listen(3000, 'localhost', function(err) {
