@@ -25,11 +25,27 @@ module.exports = {
     })
   ],
   module: {
-    loaders: [{
-      test: /\.js$/,
-      loaders: ['babel'],
-      include: path.join(__dirname, 'src')
-    }]
+    loaders: [
+      {
+        test: /\.jsx?/,
+        loader: 'babel',
+        include: path.join(__dirname, 'src')
+      },
+      {
+        test: /\.css$/,
+        loader: 'style-loader!css-loader',
+        exclude: /node_modules/
+      },
+      {
+        test: /\.woff$/,
+        loader: 'url?limit=100000'
+      },
+      {
+        test: /\.scss$/,
+        loader: 'style!css!sass',
+        include: path.join(__dirname, 'src')
+      }
+    ]
   },
   node: {
     child_process: 'empty',
